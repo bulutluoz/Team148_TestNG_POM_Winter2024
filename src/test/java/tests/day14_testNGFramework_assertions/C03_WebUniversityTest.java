@@ -18,13 +18,13 @@ public class C03_WebUniversityTest {
         Driver.getDriver().get("https://webdriveruniversity.com/");
 
         WebDriverUniversityPage webDriverUniversityPage = new WebDriverUniversityPage();
-        ReusableMethods.bekle(2);
+
 
         //2."Login Portal" a  kadar asagi inin
 
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView({block: 'center'}); ", webDriverUniversityPage.loginPortalElementi);
-        ReusableMethods.bekle(2);
+
 
         //3."Login Portal" a tiklayin
         webDriverUniversityPage.loginPortalElementi
@@ -32,7 +32,7 @@ public class C03_WebUniversityTest {
 
         //4.Diger window'a gecin
         ReusableMethods.titleIleWindowDegistir(Driver.getDriver(),"WebDriver | Login Portal");
-        ReusableMethods.bekle(2);
+
         //5."username" ve  "password" kutularina deger yazdirin
         Faker faker = new Faker();
 
@@ -41,7 +41,7 @@ public class C03_WebUniversityTest {
 
         //6."login" butonuna basin
         webDriverUniversityPage.loginButonu.click();
-        ReusableMethods.bekle(2);
+
 
         //7.Popup'ta cikan yazinin "validation failed" oldugunu test edin
         String expectedPopupYazi = "validation failed";
@@ -58,7 +58,7 @@ public class C03_WebUniversityTest {
                             .accept();
 
 
-        ReusableMethods.bekle(2);
+
 
         //9.Ilk sayfaya geri donun
         ReusableMethods.urlIleWindowDegistir(Driver.getDriver(),"https://webdriveruniversity.com/");
@@ -67,7 +67,7 @@ public class C03_WebUniversityTest {
 
         Assert.assertTrue(webDriverUniversityPage.loginPortalElementi.isDisplayed());
 
-        ReusableMethods.bekle(2);
+
         Driver.quitDriver();
 
     }
