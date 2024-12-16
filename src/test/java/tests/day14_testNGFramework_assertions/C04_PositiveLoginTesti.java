@@ -66,7 +66,7 @@ public class C04_PositiveLoginTesti {
         // 1- https://www.testotomasyonu.com/ anasayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
 
-
+        ReusableMethods.bekle(1);
         // 2- account linkine basin
         TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
         testotomasyonuPage.accountLinki
@@ -77,7 +77,7 @@ public class C04_PositiveLoginTesti {
 
         // 4- Kullanici sifresi olarak gecerli password girin
         testotomasyonuPage.passwordKutusu.sendKeys(ConfigReader.getProperty("toGecerliPassword"));
-
+        ReusableMethods.bekle(1);
         // 5- Login butonuna basarak login olun
         testotomasyonuPage.loginButonu
                             .click();
@@ -85,11 +85,10 @@ public class C04_PositiveLoginTesti {
         // 6- Basarili olarak giris yapilabildigini test edin
         Assert.assertTrue(testotomasyonuPage.logoutButonu.isDisplayed());
 
+        ReusableMethods.bekle(1);
         // logout olun
         testotomasyonuPage.logoutButonu
                             .click();
-
-        ReusableMethods.bekle(3);
         Driver.quitDriver();
 
     }

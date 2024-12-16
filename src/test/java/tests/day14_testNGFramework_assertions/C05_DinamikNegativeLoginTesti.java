@@ -17,10 +17,12 @@ public class C05_DinamikNegativeLoginTesti {
     //4- Login butonuna basarak login olmayi deneyin
     //5- Basarili olarak giris yapilamadigini test edin
 
-    TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+    static TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
 
     @Test
     public void gecersizPasswordTesti(){
+        testotomasyonuPage = new TestotomasyonuPage();
+
         //1- https://www.testotomasyonu.com/ anasayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
         //2- account linkine basin
@@ -42,6 +44,8 @@ public class C05_DinamikNegativeLoginTesti {
 
     @Test
     public void gecersizEmailTesti(){
+        testotomasyonuPage = new TestotomasyonuPage();
+
         //1- https://www.testotomasyonu.com/ anasayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
         //2- account linkine basin
@@ -59,6 +63,8 @@ public class C05_DinamikNegativeLoginTesti {
 
     @Test
     public void gecersizEmailGecersizPasswordTesti(){
+        testotomasyonuPage = new TestotomasyonuPage();
+
         //1- https://www.testotomasyonu.com/ anasayfasina gidin
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
         //2- account linkine basin
