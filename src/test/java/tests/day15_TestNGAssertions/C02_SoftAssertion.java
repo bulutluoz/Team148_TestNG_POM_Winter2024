@@ -10,7 +10,7 @@ import utilities.Driver;
 
 public class C02_SoftAssertion {
 
-    @Test
+    @Test(groups = "smoke")
     public void softAssertionTesti(){
 
         // 1- testotomasyonu anasayfaya gidip
@@ -19,7 +19,7 @@ public class C02_SoftAssertion {
 
         // url'in testotomasyonu icerdigini test edin
 
-        String expectedUrlIcerik = "testotomasyonu1";
+        String expectedUrlIcerik = "testotomasyonu";
         String actualUrl = Driver.getDriver().getCurrentUrl();
 
         SoftAssert softAssert = new SoftAssert();
@@ -37,7 +37,7 @@ public class C02_SoftAssertion {
         String actualSonuc = testotomasyonuPage.aramaSonucuElementi.getText();
         String unExpectedSonuc = ConfigReader.getProperty("toUnexpectedSonuc");
 
-        softAssert.assertNotEquals(actualSonuc,actualSonuc,"urun bulunamadi");
+        softAssert.assertNotEquals(actualSonuc,unExpectedSonuc,"urun bulunamadi");
 
         // 3- ilk urunu tiklayip,
         testotomasyonuPage.ilkUrunElementi.click();

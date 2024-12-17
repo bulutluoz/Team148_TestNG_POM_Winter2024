@@ -19,7 +19,7 @@ public class C05_DinamikNegativeLoginTesti {
 
     static TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
 
-    @Test
+    @Test(groups = "smoke")
     public void gecersizPasswordTesti(){
         testotomasyonuPage = new TestotomasyonuPage();
 
@@ -42,7 +42,7 @@ public class C05_DinamikNegativeLoginTesti {
         Driver.quitDriver();
     }
 
-    @Test
+    @Test(groups = {"smoke","regression"})
     public void gecersizEmailTesti(){
         testotomasyonuPage = new TestotomasyonuPage();
 
@@ -61,7 +61,7 @@ public class C05_DinamikNegativeLoginTesti {
         Driver.quitDriver();
     }
 
-    @Test
+    @Test(groups = {"smoke","E2E"})
     public void gecersizEmailGecersizPasswordTesti(){
         testotomasyonuPage = new TestotomasyonuPage();
 

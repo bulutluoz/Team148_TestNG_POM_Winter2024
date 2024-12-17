@@ -17,7 +17,7 @@ public class C06_PageClassKullanimi {
 
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
 
-    @Test
+    @Test(groups = "smoke")
     public void anasayfaTesti(){
         // 1- testotomasyonu anasayfaya gidip
         Driver.getDriver().get("https://www.testotomasyonu.com");
@@ -29,7 +29,7 @@ public class C06_PageClassKullanimi {
         Assert.assertTrue(actualUrl.contains(expectedUrlIcerik));
     }
 
-    @Test(dependsOnMethods = "anasayfaTesti")
+    @Test(dependsOnMethods = "anasayfaTesti",groups = {"smoke","regression"})
     public void phoneAramaTesti(){
         // 2- phone icin arama yapip
 
@@ -44,7 +44,7 @@ public class C06_PageClassKullanimi {
 
     }
 
-    @Test(dependsOnMethods = "phoneAramaTesti")
+    @Test(dependsOnMethods = "phoneAramaTesti",groups = {"smoke","E2E"})
     public void ilkUrunIsimTesti(){
         // 3- ilk urunu tiklayip,
         testotomasyonuPage.ilkUrunElementi
