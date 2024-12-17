@@ -35,6 +35,6 @@ public class C06_SingletonPattern {
 
 
         ReusableMethods.bekle(3);
-        Driver.quitDriver();
+        //Driver.quitDriver();
     }
 }

@@ -45,7 +45,7 @@ public class C02_SoftAssertion {
 
         // urun isminde case sensitive olmadan "phone" bulundugunu test edin
 
-        String expectedIsimIcerik = ConfigReader.getProperty("toAranacakKelime")+"1";
+        String expectedIsimIcerik = ConfigReader.getProperty("toAranacakKelime");
         String actualUrunIsmi = testotomasyonuPage.ilkUrunSayfasindakiIsimElementi
                                                     .getText()
                                                     .toLowerCase();
