@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.EditorPage;
 import utilities.ConfigReader;
@@ -12,6 +13,7 @@ import utilities.ReusableMethods;
 
 public class C07_YeniKayitOlusturma {
 
+
     // Farkli datalarla tabloya 5 kayit ekleyip, asagidaki testi yapin.
     //	When kullanici https://editor.datatables.net/ adresine gider
     //	Then new butonuna basar
@@ -19,6 +21,20 @@ public class C07_YeniKayitOlusturma {
     //	And Create tusuna basar
     //	When kullanici ilk isim ile arama yapar
     //	Then isim bolumunde isminin oldugunu dogrular
+
+    @DataProvider
+    public static Object[][] kisiBilgileriProvider() {
+
+        String[][] kisiBilgileriArr = { {"Hamza","Kavas","Qa","Istanbul","junior","2025-05-12","50000"},
+                                        {"Cansu","Altinsoy","Qa","Istanbul","junior","2025-06-12","20000"},
+                                        {"Anil","Ozden","Qa","Izmir","Medior","2025-05-12","40000"},
+                                        {"Ceren","Kilic","Qa","Ankara","Medior","2025-05-12","25000"}
+                                        };
+
+
+        return kisiBilgileriArr;
+    }
+
 
 
     @Test (dataProvider = "kisiBilgileriProvider")
@@ -34,9 +50,9 @@ public class C07_YeniKayitOlusturma {
 
         //	 tum bilgileri girer
         Actions actions = new Actions(Driver.getDriver());
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
 
-        actions.click(editorPage.firstNameKutusu)
+        actions
                 .sendKeys(firstName)
                 .sendKeys(Keys.TAB)
                 .sendKeys(lastName)
@@ -58,14 +74,16 @@ public class C07_YeniKayitOlusturma {
         //	 kullanici ilk isim ile arama yapar
         editorPage.searchKutusu.sendKeys(firstName);
         ReusableMethods.bekle(1);
-
+        ReusableMethods.bekle(1);
         //	 isim bolumunde isminin oldugunu dogrular
 
         String actualIlkIsim = editorPage.ilkIsimElementi.getText();
         String expectedIsim = firstName + " " + lastName;
 
         Assert.assertEquals(actualIlkIsim, expectedIsim);
+        ReusableMethods.bekle(1);
 
+        Driver.quitDriver();
 
     }
 }
