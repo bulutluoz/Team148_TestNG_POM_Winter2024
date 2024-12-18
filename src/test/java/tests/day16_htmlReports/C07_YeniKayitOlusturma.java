@@ -1,6 +1,8 @@
 package tests.day16_htmlReports;
 
 import org.testng.annotations.Test;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class C07_YeniKayitOlusturma {
 
@@ -16,6 +18,20 @@ public class C07_YeniKayitOlusturma {
     @Test
     public void kayitTesti(String firstName, String lastName, String position,
                            String office, String extension, String startDate, int salary){
+
+        //	 kullanici https://editor.datatables.net/ adresine gider
+        Driver.getDriver().get(ConfigReader.getProperty("editorUrl"));
+
+        //	new butonuna basar
+
+        //	 tum bilgileri girer
+
+        //	 Create tusuna basar
+
+        //	 kullanici ilk isim ile arama yapar
+
+        //	 isim bolumunde isminin oldugunu dogrular
+
 
     }
 }
