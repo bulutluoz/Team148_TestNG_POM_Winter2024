@@ -3,6 +3,7 @@ package tests.day16_htmlReports;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -28,6 +29,7 @@ public class C03_TopluAramaTesti {
         Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
 
         TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+        SoftAssert softAssert = new SoftAssert();
 
         for (String eachUrun :aranacakUrunlerList){
 
@@ -36,11 +38,11 @@ public class C03_TopluAramaTesti {
             String unexpectedAramaSonucu = ConfigReader.getProperty("toUnexpectedSonuc");
             String actualAramaSonucYazisi = testotomasyonuPage.aramaSonucuElementi.getText();
 
-            Assert.assertNotEquals(actualAramaSonucYazisi,unexpectedAramaSonucu);
+            softAssert.assertNotEquals(actualAramaSonucYazisi,unexpectedAramaSonucu,eachUrun+" bulunamadi" );
 
         }
 
-
+        softAssert.assertAll();
 
 
      }
