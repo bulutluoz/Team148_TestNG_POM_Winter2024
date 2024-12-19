@@ -29,13 +29,46 @@
 <suite name="Cross Browser Calistirma">
 
     <test name="Chrome ile calisacak classlar">
+        <parameter name="kullanilacakBrowser" value="chrome"></parameter>
+
+        <packages>
+            <package name="tests.day17_CrossBrowserCalistirilacakTestler"></package>
+        </packages>
 
 
     </test>
 
     <test name="Firefox ile calisacak classlar">
+        <parameter name="kullanilacakBrowser" value="firefox"></parameter>
 
+        <packages>
+            <package name="tests.day17_CrossBrowserCalistirilacakTestler"></package>
+        </packages>
 
     </test>
 
 </suite>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
