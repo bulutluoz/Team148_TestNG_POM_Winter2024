@@ -7,17 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.TestBaseCross;
 
 import java.time.Duration;
 
-public class C03_UrunAramaTesti {
+public class C03_UrunAramaTesti extends TestBaseCross {
 
     @Test
     public void test01(){
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.testotomasyonu.com");
 
@@ -33,16 +31,7 @@ public class C03_UrunAramaTesti {
         String actualSonuc = aramaSonucuElementi.getText();
 
         Assert.assertNotEquals(actualSonuc,unExpectedSonuc);
-        /*
-            JUnit Assertions ile 2 kucuk fark var
-            1- Class ismi Assertions degil Assert
-            2- JUnit'de once expected, sonra actual yaziliyordu
-               TestNG'de once actual, sonra expected yaziliyor
-         */
 
-
-        // driver'i kapatin
-        driver.quit();
     }
 
 }
